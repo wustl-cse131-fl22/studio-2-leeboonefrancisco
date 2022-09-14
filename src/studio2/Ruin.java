@@ -17,7 +17,7 @@ public class Ruin {
 		int daysLost = 0; 
 		for (int i = totalSimulations; i > 0; i--)
 		{
-			while (startAmount < winLimit && startAmount >= 0)
+			if (startAmount < winLimit)
 			{
 				winChance = Math.random();
 				if (winChance >= 0.5)
@@ -26,12 +26,16 @@ public class Ruin {
 					//System.out.println("Win");	
 					//daysWon++;
 				}
-				else
+				else 
 				{
 					startAmount--;
 					//System.out.println("Loss");
 					//daysLost++;
 				}
+			else 
+			{
+				System.out.println("Ruin");	
+			}
 				//daysWon + daysLost > totalSimulations;
 			}
 		}
